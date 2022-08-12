@@ -30,3 +30,18 @@ exports.getDataMahasiswaById = function(req,res) {
            }
     })
 }
+
+// Menambahkan data mahasiswa
+exports.tambahMahasiswa = function(req,res) {
+    const nim = req.body.nim
+    const nama = req.body.nama
+    const jurusan = req.body.jurusan
+
+    connection.query("INSERT INTO mahasiswa (nim,nama,jurusan) VALUES(?,?,?)",[nim,nama,jurusan],function(error,rows,field) {
+        if(error) {
+            console.log(error)
+           }else {
+               response.ok("Berhasil Menambahkan Data",res)
+           } 
+    })
+}
