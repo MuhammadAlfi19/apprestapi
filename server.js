@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 // Panggil routes
 const routes = require("./routes");
-routes(app)
+routes(app) 
 
 
 app.listen(3000, () => {
