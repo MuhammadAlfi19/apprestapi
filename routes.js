@@ -6,4 +6,6 @@ module.exports = function(app) {
     app.route('/').get(json.index)
 
     app.route("/tampil").get(json.getDataMahasiswa)
+    
+    app.route('/tampil/:id').get(json.getDataMahasiswaById)
 }
