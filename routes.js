@@ -12,4 +12,6 @@ module.exports = function(app) {
     app.route('/tambah').post(json.tambahMahasiswa)
 
     app.route("/ubah").put(json.ubahData)
+
+    app.route("/hapus").delete(json.hapusData)
 }
