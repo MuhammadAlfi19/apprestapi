@@ -14,4 +14,6 @@ module.exports = function(app) {
     app.route("/ubah").put(json.ubahData)
 
     app.route("/hapus").delete(json.hapusData)
+
+    app.route("/tampilMatakuliah").get(json.tampilGroupMatakuliah)
 }
