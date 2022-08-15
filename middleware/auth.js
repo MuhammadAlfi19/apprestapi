@@ -13,11 +13,11 @@ exports.registrasi = function(req,res) {
         email : req.body.email,
         password : md5(req.body.password),
         role : req.body.role,
-        tanggalDaftar : new Date()
+        tanggal_daftar : new Date,
     }
 
-    const query = "SELECT email FROM ?? WHERE ??";
-    const table = ["user","email",post.email]
+    let query = "SELECT email FROM ?? WHERE ?? = ?";
+    let table = ["user","email",post.email]
 
     query = connection.format(query,table);
 
@@ -27,8 +27,8 @@ exports.registrasi = function(req,res) {
                 console.log(error)
               }else {
                 if(rows.length == 0) {
-                    const query = "INSERT INTO ?? SET ?"
-                    const table = ["user"]
+                    let query = "INSERT INTO ?? SET ?"
+                    let table = ["user"]
                     query = mysql.format(query,table)
                     connection.query(query,post,function(error,rows) {
                         if(error) {
@@ -37,7 +37,7 @@ exports.registrasi = function(req,res) {
                             response.ok("Data Berhasil Ditambahken", res)
                         }
                     })
-                    
+
                 }else {
                    response.ok("Maaf email sudah terdaftar", res)
                 }
